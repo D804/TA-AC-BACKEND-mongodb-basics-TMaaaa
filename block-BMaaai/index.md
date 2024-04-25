@@ -26,29 +26,31 @@ Go to `https://www.json-generator.com/`
 ```js
 // paste this on left panel
 [
-  "{{repeat(30)}}",
+  '{{repeat(30)}}',
   {
-    _id: "{{objectId()}}",
-    age: "{{integer(20, 40)}}",
-    name: "{{firstName()}} {{surname()}}",
-    gender: "{{gender()}}",
-    company: "{{company().toUpperCase()}}",
-    email: "{{email()}}",
-    phone: "+1 {{phone()}}",
-    tags: ["{{repeat(2)}}", '{{lorem(1, "words")}}'],
+    _id: '{{objectId()}}',
+    age: '{{integer(20, 40)}}',
+    name: '{{firstName()}} {{surname()}}',
+    gender: '{{gender()}}',
+    company: '{{company().toUpperCase()}}',
+    email: '{{email()}}',
+    phone: '+1 {{phone()}}',
+    tags: ['{{repeat(2)}}', '{{lorem(1, "words")}}'],
   },
 ];
 ```
 
 - download it on `Desktop`
 - import it into mongodb `test` database into a collection named `users`
+<!-- mongoimport--db test --collection users --file C:\Users\HP\Downloads\generated.json(file location) --jsonArray
+(an array of json data) -->
 
 #### Export data from mongodb server to local system in json format using
 
 `mongoexport`command.
 
 ```
-mongoexport --db state --collection cities --out ~/Desktop/states/city.json --jsonArray
+mongoexport --db test --collection users --out C:\Users\HP\Downloads\generate.json --jsonArray
 ```
 
 ## BLOCK-writeCode
@@ -58,7 +60,7 @@ Export `users` collection from `test` database onto `Desktop` in a file named `e
 #### Import from csv file
 
 ```
-mongoimport -d DB_NAME -c COLLECTION_NAME --type csv --file elections.csv(file location) --headerline(including header)
+mongoimport -d test -c users --type csv --file C:\Users\HP\Downloads\generated2.csv(file location) --headerline(including header)
 ```
 
 ## BLOCK-writeCode
@@ -66,3 +68,5 @@ mongoimport -d DB_NAME -c COLLECTION_NAME --type csv --file elections.csv(file l
 Generate mock csv data from `https://www.convertcsv.com/generate-test-data.htm`
 
 - insert this mock csv data into `test` database into a collection named `students`
+<!-- mongoimport--db test --collection students --file C:\Users\HP\Downloads\convert.csv(file location) --jsonArray
+(an array of json data) -->
